@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bl3aa5twetsum"]
+
+[ext_resource type="Texture2D" uid="uid://dr327r0avopmm" path="res://assets/images/bulletRed_outline.png" id="1_7u3a6"]
+[ext_resource type="Script" uid="uid://cnnbamywd3284" path="res://Scenes/Bullet/Bullet.gd" id="1_jy0d1"]
+[ext_resource type="PackedScene" uid="uid://bkpmwtsjc31mt" path="res://Scenes/Explosion/Explosion.tscn" id="2_nijle"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ql73s"]
+radius = 6.0
+height = 20.0
+
+[node name="Bullet" type="Area2D" unique_id=491367143]
+script = ExtResource("1_jy0d1")
+explosion = ExtResource("2_nijle")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1713612245]
+rotation = 1.5707964
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_7u3a6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=35971783]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_ql73s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

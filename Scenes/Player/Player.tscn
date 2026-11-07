@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://brj02e1bvkvuo"]
+
+[ext_resource type="Script" uid="uid://hosbxdmq553g" path="res://Scenes/Player/Player.gd" id="1_ft8w5"]
+[ext_resource type="Texture2D" uid="uid://cecrc1u428yxo" path="res://assets/images/survivor1_gun.png" id="1_s0eop"]
+[ext_resource type="Texture2D" uid="uid://bhvr2rhwvtn3a" path="res://assets/images/shape_a.png" id="3_h54ih"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s0eop"]
+radius = 24.0
+height = 48.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1349943251 groups=["player"]]
+collision_layer = 3
+script = ExtResource("1_ft8w5")
+speed = 200.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1371568531]
+self_modulate = Color(0.5802273, 0.58022785, 0.58022755, 1)
+texture = ExtResource("1_s0eop")
+offset = Vector2(10, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=155746972]
+position = Vector2(8, 1)
+shape = SubResource("CapsuleShape2D_s0eop")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=173201014]
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1890132771]
+texture = ExtResource("3_h54ih")
+texture_scale = 1.4

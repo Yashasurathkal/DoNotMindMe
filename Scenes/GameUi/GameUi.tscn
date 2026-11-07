@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://dtx5mlggfj2li"]
+
+[ext_resource type="Script" uid="uid://c2qhtkw1oev72" path="res://Scenes/GameUi/GameUi.gd" id="1_mb7aw"]
+[ext_resource type="FontFile" uid="uid://bmj05qg3kbmrp" path="res://assets/fonts/TitanOne-Regular.ttf" id="2_anb74"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d1fdx"]
+font = ExtResource("2_anb74")
+font_size = 32
+font_color = Color(0.3254902, 0.8666667, 1, 1)
+outline_size = 5
+outline_color = Color(0.14901763, 0.35201448, 0.8416792, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_anb74"]
+font = ExtResource("2_anb74")
+font_size = 70
+font_color = Color(0.9326377, 0.0006418717, 0.9199313, 1)
+outline_size = 5
+outline_color = Color(0.65474796, 3.706068e-06, 0.41461527, 1)
+
+[node name="GameUI" type="Control" unique_id=1486140126]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mb7aw")
+
+[node name="MC" type="MarginContainer" parent="." unique_id=1046077129]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="TimeLabel" type="Label" parent="MC" unique_id=577209029]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "0.0s"
+label_settings = SubResource("LabelSettings_d1fdx")
+
+[node name="CollectedLabel" type="Label" parent="MC" unique_id=2034416860]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "00/00"
+label_settings = SubResource("LabelSettings_d1fdx")
+
+[node name="ExitLabel" type="Label" parent="MC" unique_id=1817224148]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "GO TO EXIT!"
+label_settings = SubResource("LabelSettings_d1fdx")
+horizontal_alignment = 2
+
+[node name="GameOverRect" type="ColorRect" parent="." unique_id=1375786499]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.29260358, 0.043817148, 0.776441, 0.3019608)
+
+[node name="GameOverLabel" type="Label" parent="GameOverRect" unique_id=449482137]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -398.0
+offset_top = -40.5
+offset_right = 398.0
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Game Over, You Died!"
+label_settings = SubResource("LabelSettings_anb74")

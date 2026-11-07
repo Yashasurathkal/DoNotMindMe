@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://c1d28q5nsta5v"]
+
+[ext_resource type="Script" uid="uid://cdqjvs7dh8uw7" path="res://Scenes/Pill/Pill.gd" id="1_8q7d1"]
+[ext_resource type="Texture2D" uid="uid://dmhtpc3xn6iaf" path="res://assets/images/pill1.png" id="1_re5h8"]
+[ext_resource type="AudioStream" uid="uid://bsf0uuls5bte0" path="res://assets/sounds/sfx_sounds_powerup1.wav" id="2_6s0vm"]
+[ext_resource type="AudioStream" uid="uid://cwky4w1ie01iw" path="res://assets/sounds/sfx_sounds_powerup2.wav" id="3_8q7d1"]
+[ext_resource type="AudioStream" uid="uid://drx87ol4c6u35" path="res://assets/sounds/sfx_sounds_powerup3.wav" id="4_conmq"]
+[ext_resource type="AudioStream" uid="uid://dnj22c5npupyl" path="res://assets/sounds/sfx_sounds_powerup4.wav" id="5_yt8wt"]
+[ext_resource type="AudioStream" uid="uid://csdcqm7lcrcji" path="res://assets/sounds/sfx_sounds_powerup5.wav" id="6_dcnhr"]
+[ext_resource type="AudioStream" uid="uid://uvt5wrixupbg" path="res://assets/sounds/sfx_sounds_powerup6.wav" id="7_ilj1h"]
+[ext_resource type="AudioStream" uid="uid://cgluav68xlkyg" path="res://assets/sounds/sfx_sounds_powerup7.wav" id="8_df38g"]
+[ext_resource type="AudioStream" uid="uid://bus1vr1fq3sx2" path="res://assets/sounds/sfx_sounds_powerup8.wav" id="9_2isq6"]
+[ext_resource type="AudioStream" uid="uid://bg20i1qyymy67" path="res://assets/sounds/sfx_sounds_powerup9.wav" id="10_npvlf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v0s4m"]
+height = 48.083263
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ql73s"]
+streams_count = 9
+stream_0/stream = ExtResource("2_6s0vm")
+stream_1/stream = ExtResource("3_8q7d1")
+stream_2/stream = ExtResource("4_conmq")
+stream_3/stream = ExtResource("5_yt8wt")
+stream_4/stream = ExtResource("6_dcnhr")
+stream_5/stream = ExtResource("7_ilj1h")
+stream_6/stream = ExtResource("8_df38g")
+stream_7/stream = ExtResource("9_2isq6")
+stream_8/stream = ExtResource("10_npvlf")
+
+[node name="Pill" type="Area2D" unique_id=877149994 groups=["pill"]]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_8q7d1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=248585081]
+texture = ExtResource("1_re5h8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1268376018]
+rotation = 0.7853982
+shape = SubResource("CapsuleShape2D_v0s4m")
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="." unique_id=1488447707]
+stream = SubResource("AudioStreamRandomizer_ql73s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered" flags=6]
+[connection signal="finished" from="Sound" to="." method="_on_sound_finished"]
